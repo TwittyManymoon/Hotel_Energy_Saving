@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Hotel Energy Saving</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="/css/login.css" media="screen" type="text/css" />
+  <link rel="stylesheet" href="/css/style.css" type="text/css" />
+</head>
+
+<body>
+
+  <div>
+
+    <div class="w3-display-topleft w3-padding-large w3-xlarge">
+      <img alt="Logo" src="/images/logo.jpg" style="width: 10%; height: 10%;" />
+    </div>
+
+    <div class="login-card w3-display-container w3-animate-opacity" style="margin-top: 10%;">
+      <div>
+        <h1>Hotel Energy Saving</h1>
+      </div>
+      <div style="font-family: Raleway; text-align: center; color: #D44638;">
+        <h5><%= message %></h5>
+      </div>
+
+
+      <!-- in-line block -->
+      <div class="block">
+        <div style="margin: 1%">
+          <img src="/images/avatars/gmail.png" style="max-width: 150px">
+        </div>
+
+        <form action="/login" method="POST" style="margin-left: 10%">
+          <input type="text" name="email" placeholder="Gmail">
+          <input type="password" name="password" placeholder="Password">
+          <input type="submit" class="login login-submit" value="login">
+        </form>
+      </div>
+    </div>
+
+    <div class="w3-display-bottomleft w3-padding-large w3-text-white" style="font-family: Raleway;">
+      Version 1.0.0
+    </div>
+
+  </div>
+</body>
+
+
+
+</html>

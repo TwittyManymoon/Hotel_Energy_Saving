@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hotel Energy Saving</title>
+    <meta name="description" content="Free Bootstrap 4 Admin Theme | Pike Admin">
+    <meta name="author" content="Pike Web Development - https://www.pikephp.com">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/images/favicon.ico">
+
+    <!-- Bootstrap CSS -->
+    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Font Awesome CSS -->
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom CSS -->
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+
+    <!-- BEGIN CSS for this page -->
+    <link href="/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" />
+    <link href="/css/calendar/calendar.css" rel="stylesheet" type="text/css" />
+
+    <!-- END CSS for this page -->
+</head>
+
+<body class="adminbody">
+
+    <div id="main">
+
+        <!-- top bar navigation -->
+        <div class="headerbar">
+
+            <!-- LOGO -->
+            <div class="headerbar-left">
+                <a href="index.html" class="logo"><img alt="Logo" src="/images/logo.jpg" /> <span>Guest</span></a>
+            </div>
+
+            <!-- Navbar -->
+            <nav class="navbar-custom">
+
+                <ul class="list-inline float-right mb-0">
+
+                    <li class="list-inline-item dropdown notif">
+                        <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="false" aria-expanded="false">
+                            <span>5305</span>
+                            <img src="/images/avatars/admin2.png" alt="Profile image" class="avatar-rounded">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                            <!-- item-->
+                            <div class="dropdown-item noti-title">
+                                <h5 class="text-overflow"><small>Hi, 5305!</small> </h5>
+                            </div>
+
+                            <!-- item-->
+                            <a href="/user" class="dropdown-item notify-item">
+                                <i class="fa fa-user"></i> <span>Profile</span>
+                            </a>
+
+                            <!-- item-->
+                            <a href="/index" class="dropdown-item notify-item">
+                                <i class="fa fa-file-text-o"></i> <span>Index</span>
+                            </a>
+
+                        </div>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+        <!-- End Navigation -->
+
+
+        <!-- Left Sidebar -->
+        <div class="left main-sidebar">
+
+            <div class="sidebar-inner leftscroll">
+
+                <div id="sidebar-menu">
+
+                    <ul>
+                        <li class="submenu">
+                            <a href="/user"><i class="fa fa-fw fa-user"></i><span> User Profile </span> </a>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="/dashboard"><i class="fa fa-fw fa-bars"></i><span> Dashboard </span>
+                            </a>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="/charts/1"><i class="fa fa-fw fa-area-chart"></i><span> Charts </span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <div class="clearfix"></div>
+
+                </div>
+
+                <div class="clearfix"></div>
+
+            </div>
+
+        </div>
+        <!-- End Sidebar -->
+
+
+        <div class="content-page">
+
+            <!-- Start content -->
+            <div class="content">
+
+
+                <div class="row">
+
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <h3><i class="fa fa-user"></i> User Profile</h3>
+                            </div>
+
+                            <div class="card-body">
+
+                                <div class="row">
+                                    <div class="col-lg-3 col-xl-3 border-right">
+
+
+                                        <div class="m-b-10"></div>
+
+                                        <div id="avatar_image">
+                                            <img alt="image" style="max-width:250px; height:auto;"
+                                                src="/images/avatars/admin2.png" />
+                                            <br />
+
+                                        </div>
+                                        <br>
+                                        <b>Latest active</b>: Dec 06 2017, 22:23
+                                        <div class="m-b-10"></div>
+
+                                    </div>
+                                    <div class="col-lg-9 col-xl-9">
+
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Name</label>
+                                                    <br>
+                                                    <%= name  %>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Room Number</label>
+                                                    <br>
+                                                    5305
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Check In</label>
+                                                    <br>
+                                                    21 May 2020, 12:00:00 AM
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                            <!-- end card-body -->
+
+                        </div>
+                        <!-- end card -->
+
+                    </div>
+                    <!-- end col -->
+
+                </div>
+                <!-- end row -->
+
+            </div>
+            <!-- END content -->
+
+        </div>
+        <!-- END content-page -->
+
+        <footer class="footer">
+            <span class="text-right">
+                Copyright <a target="_blank" href="#">Your Website</a>
+            </span>
+            <span class="float-right">
+                Powered by <a target="_blank" href="https://www.pikeadmin.com"><b>Pike Admin</b></a>
+            </span>
+        </footer>
+
+    </div>
+    <!-- END main -->
+
+
+    <script src="/js/modernizr.min.js"></script>
+    <script src="/js/jquery/jquery.min.js"></script>
+    <script src="/js/moment.min.js"></script>
+
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap/bootstrap.min.js"></script>
+
+    <script src="/js/detect.js"></script>
+    <script src="/js/fastclick.js"></script>
+    <script src="/js/jquery/jquery.blockUI.js"></script>
+
+
+    <!-- Used to style the API Viewer and Explorer UI -->
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+
+    <!-- App js -->
+    <script src="/js/pikeadmin.js"></script>
+
+    <!-- BEGIN Java Script for this page -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+    <!-- Counter-Up-->
+    <script src="/plugins/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="/plugins/counterup/jquery.counterup.min.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hotel Energy Saving</title>
+    <meta name="description" content="Free Bootstrap 4 Admin Theme | Pike Admin">
+    <meta name="author" content="Pike Web Development - https://www.pikephp.com">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/images/favicon.ico">
+
+    <!-- Bootstrap CSS -->
+    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Font Awesome CSS -->
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom CSS -->
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+
+    <!-- BEGIN CSS for this page -->
+    <link href="/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" />
+    <link href="/css/calendar/calendar.css" rel="stylesheet" type="text/css" />
+
+    <!-- END CSS for this page -->
+
+    <script src="/js/modernizr.min.js"></script>
+    <script src="/js/jquery/jquery.min.js"></script>
+    <script src="/js/moment.min.js"></script>
+</head>
+
+<body class="adminbody">
+
+    <div id="main">
+
+        <!-- top bar navigation -->
+        <div class="headerbar">
+
+            <!-- LOGO -->
+            <div class="headerbar-left">
+                <a href="index.html" class="logo"><img alt="Logo" src="/images/logo.jpg" /> <span>Hotel</span></a>
+            </div>
+
+            <!-- Navbar -->
+            <nav class="navbar-custom">
+
+                <ul class="list-inline float-right mb-0">
+
+                    <li class="list-inline-item dropdown notif">
+                        <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="false" aria-expanded="false">
+                            <span><%= name  %></span>
+                            <img src="/images/avatars/admin2.png" alt="Profile image" class="avatar-rounded">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                            <!-- item-->
+                            <div class="dropdown-item noti-title">
+                                <h5 class="text-overflow"><small>Hi, <%= name %>!</small> </h5>
+                            </div>
+
+                            <!-- item-->
+                            <a href="/userTechnician" class="dropdown-item notify-item">
+                                <i class="fa fa-user"></i> <span>Profile</span>
+                            </a>
+
+                            <!-- item-->
+                            <form id="logout" action="/logout?_method=DELETE" method="POST">
+                                <a href="javascript:;" onclick="document.getElementById('logout').submit();"
+                                    class="dropdown-item notify-item">
+                                    <i class="fa fa-power-off"></i> <span>Logout</span>
+                                </a>
+                            </form>
+
+
+                        </div>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+        <!-- End Navigation -->
+
+
+        <!-- Left Sidebar -->
+        <div class="left main-sidebar">
+
+            <div class="sidebar-inner leftscroll">
+
+                <div id="sidebar-menu">
+
+                    <ul>
+                        <li class="submenu">
+                            <a href="/userTechnician"><i class="fa fa-fw fa-user"></i><span> User Profile </span> </a>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="/dashboardTechnician"><i class="fa fa-fw fa-bars"></i><span> Dashboard
+                                </span> </a>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="/chartsTechnician/1"><i class="fa fa-fw fa-area-chart"></i><span> Charts </span>
+                            </a>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="/calendar"><i class="fa fa-fw fa-calendar"></i><span> Calendar </span>
+                            </a>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="/nationality"><i class="fa fa-fw fa-globe"></i><span> Nationality </span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="clearfix"></div>
+
+                </div>
+
+                <div class="clearfix"></div>
+
+            </div>
+
+        </div>
+        <!-- End Sidebar -->
+
+
+        <div class="content-page">
+
+            <!-- Start content -->
+            <div class="content">
+
+                <div class="container-fluid">
+
+                    <!-- 2nd Important -->
+
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-12">
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <h3><i class="fa fa-bar-chart-o"></i> Calendar </h3>
+                                Show the customers check-in/out status.
+                            </div>
+                            <div class="card-box tilebox-one noradius">
+                                <div id="calendar"></div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div><!-- end card-->
+                    </div>
+
+
+                </div>
+                <!-- end row -->
+
+
+            </div>
+            <!-- END container-fluid -->
+
+        </div>
+        <!-- END content -->
+
+    </div>
+    <!-- END content-page -->
+
+
+    <footer class="footer">
+        <span class="text-right">
+            Copyright <a target="_blank" href="#">Your Website</a>
+        </span>
+        <span class="float-right">
+            Powered by <a target="_blank" href="https://www.pikeadmin.com"><b>Pike Admin</b></a>
+        </span>
+    </footer>
+
+    </div>
+    <!-- END main -->
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap/bootstrap.min.js"></script>
+
+    <script src="/js/detect.js"></script>
+    <script src="/js/fastclick.js"></script>
+    <script src="/js/jquery.blockUI.js"></script>
+    <script src="/js/jquery.nicescroll.js"></script>
+
+    <!-- App js -->
+    <script src="/js/pikeadmin.js"></script>
+
+    <!-- BEGIN Java Script for this page -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+    <!-- Counter-Up-->
+    <script src="/plugins/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="/plugins/counterup/jquery.counterup.min.js"></script>
+
+    <!-- ----------------------------------------- Gauge ----------------------------------------- -->
+    <!-- Ignite UI Required Combined CSS Files -->
+    <link href="http://cdn-na.infragistics.com/igniteui/2019.1/latest/css/themes/infragistics/infragistics.theme.css"
+        rel="stylesheet" />
+    <link href="http://cdn-na.infragistics.com/igniteui/2019.1/latest/css/structure/infragistics.css"
+        rel="stylesheet" />
+
+    <!-- Used to style the API Viewer and Explorer UI -->
+    <link href="https://www.igniteui.com/css/apiviewer.css" rel="stylesheet" type="text/css" />
+
+    <script src="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.8.3.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+
+    <!-- Ignite UI Required Combined JavaScript Files -->
+    <script src="http://cdn-na.infragistics.com/igniteui/2019.1/latest/js/infragistics.core.js"></script>
+    <script src="http://cdn-na.infragistics.com/igniteui/2019.1/latest/js/infragistics.dv.js"></script>
+
+    <!-- ----------------------------------------- Calendar ----------------------------------------- -->
+    <!-- Calendar JS -->
+    <script src="/plugins/fullcalendar/fullcalendar.min.js"></script>
+
+    <!-- jQuery -->
+    <script>
+
+
+        $(document).ready(function () {
+			/* initialize the calendar
+						-----------------------------------------------------------------*/
+            var date = new Date();
+            var d = date.getDate();
+            m = date.getMonth();
+            y = date.getFullYear();
+
+            var data = <%- JSON.stringify(data) %>
+                //console.log(data)
+
+            var dataEventArr = []
+            for (var i = 0; i < data.length; i++) {
+                var dataEventObj = {
+                    title: data[i].Title,
+                    start: data[i].Start,
+                    end: data[i].End,
+                    className: data[i].ClassName
+                }
+                dataEventArr.push(dataEventObj)
+            }
+            console.log(dataEventArr)
+
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                selectable: true,
+                selectHelper: true,
+                select: function (start, end) {
+                    var title = prompt('Event Title:');
+                    var eventData;
+                    if (title) {
+                        eventData = {
+                            title: title,
+                            start: start,
+                            end: end
+                        };
+                        // save eventData to Database
+                        $.ajax({
+                            type: "GET",
+                            url: `/api/insertCalendar/${JSON.stringify(eventData)}`,
+                            success: function () {
+                                console.log("success");
+                            },
+                        });
+                        $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+                    }
+                    $('#calendar').fullCalendar('unselect');
+                },
+                editable: true,
+                eventLimit: true, // allow "more" link when too many events
+                events: dataEventArr,
+                droppable: true, // this allows things to be dropped onto the calendar
+                height: 550,
+                drop: function () {
+
+                    if ($('#drop-remove').is(':checked')) {
+                        // if so, remove the element from the "Draggable Events" list
+                        $(this).remove();
+                    }
+                }
+            });
+
+
+            // counter-up
+            $('.counter').counterUp({
+                delay: 10,
+                time: 600
+            });
+        });
+    </script>
+    <!-- END Java Script for this page -->
+
+</body>
+
+</html>

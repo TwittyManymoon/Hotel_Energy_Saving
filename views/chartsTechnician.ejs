@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Hotel Energy Saving</title>
+	<meta name="description" content="Free Bootstrap 4 Admin Theme | Pike Admin">
+	<meta name="author" content="Pike Web Development - https://www.pikephp.com">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="/images/favicon.ico">
+
+	<!-- Bootstrap CSS -->
+	<link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+	<!-- Font Awesome CSS -->
+	<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+	<!-- Custom CSS -->
+	<link href="/css/style.css" rel="stylesheet" type="text/css" />
+	<link href="/css/charts.css" rel="stylesheet" type="text/css" />
+
+	<!-- BEGIN CSS for this page -->
+	<link rel="stylesheet" type="text/css"
+		href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" />
+
+	<style>
+		.text {
+			display: inline-block;
+
+		}
+
+		.download {
+			display: inline-block;
+			margin-left: 1%;
+		}
+	</style>
+	<!-- END CSS for this page -->
+
+	<script src="/js/modernizr.min.js"></script>
+	<script src="/js/jquery/jquery.min.js"></script>
+	<script src="/js/moment.min.js"></script>
+
+</head>
+
+<body class="adminbody">
+
+	<div id="main">
+
+		<!-- top bar navigation -->
+		<div class="headerbar">
+
+			<!-- LOGO -->
+			<div class="headerbar-left">
+				<a href="index.html" class="logo"><img alt="Logo" src="/images/logo.jpg" /> <span>Hotel</span></a>
+			</div>
+
+			<!-- Navbar -->
+			<nav class="navbar-custom">
+
+				<ul class="list-inline float-right mb-0">
+
+					<li class="list-inline-item dropdown notif">
+						<a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button"
+							aria-haspopup="false" aria-expanded="false">
+							<span><%= name  %></span>
+							<img src="/images/avatars/admin2.png" alt="Profile image" class="avatar-rounded">
+						</a>
+						<div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+							<!-- item-->
+							<div class="dropdown-item noti-title">
+								<h5 class="text-overflow"><small>Hi, <%= name %>!</small> </h5>
+							</div>
+
+							<!-- item-->
+							<a href="/userTechnician" class="dropdown-item notify-item">
+								<i class="fa fa-user"></i> <span>Profile</span>
+							</a>
+
+							<!-- item-->
+							<form id="logout" action="/logout?_method=DELETE" method="POST">
+								<a href="javascript:;" onclick="document.getElementById('logout').submit();"
+									class="dropdown-item notify-item">
+									<i class="fa fa-power-off"></i> <span>Logout</span>
+								</a>
+							</form>
+
+						</div>
+					</li>
+
+				</ul>
+
+			</nav>
+
+		</div>
+		<!-- End Navigation -->
+
+
+		<!-- Left Sidebar -->
+		<div class="left main-sidebar">
+
+			<div class="sidebar-inner leftscroll">
+
+				<div id="sidebar-menu">
+
+					<ul>
+						<li class="submenu">
+							<a href="/userTechnician"><i class="fa fa-fw fa-user"></i><span> User Profile </span> </a>
+						</li>
+
+						<li class="submenu">
+							<a href="/dashboardTechnician"><i class="fa fa-fw fa-bars"></i><span> Dashboard </span>
+							</a>
+						</li>
+
+						<li class="submenu">
+							<a href="/chartsTechnician/1"><i class="fa fa-fw fa-area-chart"></i><span> Charts </span>
+							</a>
+						</li>
+
+						<li class="submenu">
+							<a href="/calendar"><i class="fa fa-fw fa-calendar"></i><span> Calendar </span>
+							</a>
+						</li>
+
+						<li class="submenu">
+							<a href="/nationality"><i class="fa fa-fw fa-globe"></i><span> Nationality </span>
+							</a>
+						</li>
+
+					</ul>
+
+					<div class="clearfix"></div>
+
+				</div>
+
+				<div class="clearfix"></div>
+
+			</div>
+
+		</div>
+		<!-- End Sidebar -->
+
+		<div class="content-page">
+
+			<!-- Start content -->
+			<div class="content">
+
+				<div class="container-fluid">
+
+					<!-- Row 1 -->
+					<div class="row">
+
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+							<div class="card mb-3">
+								<div class="card-header">
+									<div class="text">
+										<h3><i class="fa fa-table"></i> Resolution (<%= resolution %>)</h3>
+									</div>
+								</div>
+
+								<div class="card-body">
+									<a href="/chartsTechnician/1" class="btn btn-danger">Real-time</a>
+									<a href="/chartsTechnician/60" class="btn btn-warning">1 min</a>
+									<a href="/chartsTechnician/300" class="btn btn-success">5 mins</a>
+									<a href="/chartsTechnician/1800" class="btn btn-info">30 mins</a>
+									<a href="/chartsTechnician/3600" class="btn btn-primary">1 hr</a>
+									<a href="/chartsTechnician/86400" class="btn btn-dark">1 day</a>
+								</div>
+							</div><!-- end card-->
+						</div>
+					</div>
+					<!-- End Row -->
+
+
+					<!-- Row 2 -->
+					<div class="row">
+
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+							<div class="card mb-3">
+								<div class="card-header">
+									<div class="text">
+										<h3><i class="fa fa-table"></i> Air Conditioner</h3>
+									</div>
+								</div>
+
+								<div class="card-body">
+									<canvas id="LineChart1"></canvas>
+								</div>
+								<div class="card-footer small text-muted">Latest updated : <%= data[0].Timestamp %>
+								</div>
+							</div><!-- end card-->
+						</div>
+					</div>
+					<!-- End Row -->
+
+					<!-- Row 3 -->
+					<div class="row">
+
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+							<div class="card mb-3">
+								<div class="card-header">
+									<div class="text">
+										<h3><i class="fa fa-power-off"></i> Lights</h3>
+									</div>
+								</div>
+
+								<div class="card-body">
+									<canvas id="LineChart2"></canvas>
+								</div>
+								<div class="card-footer small text-muted">Latest updated : <%= data[0].Timestamp %>
+								</div><!-- end card-->
+							</div>
+						</div>
+						<!-- Row 4 -->
+
+						<!-- END container-fluid -->
+
+					</div>
+
+					<div class="row">
+
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+							<div class="card mb-3">
+								<div class="card-header">
+									<div class="text">
+										<h3><i class="fa fa-external-link"></i> Outlet</h3>
+									</div>
+								</div>
+
+								<div class="card-body">
+									<canvas id="LineChart3"></canvas>
+								</div>
+								<div class="card-footer small text-muted">Latest updated : <%= data[0].Timestamp %>
+								</div><!-- end card-->
+							</div>
+						</div>
+
+					</div>
+					<!-- END content -->
+
+				</div>
+				<!-- END content-page -->
+
+				<footer class="footer">
+					<span class="text-right">
+						Copyright <a target="_blank" href="#">Your Website</a>
+					</span>
+					<span class="float-right">
+						Powered by <a target="_blank" href="https://www.pikeadmin.com"><b>Pike Admin</b></a>
+					</span>
+				</footer>
+
+			</div>
+			<!-- END main -->
+			<script src="/js/popper.min.js"></script>
+			<script src="/js/bootstrap/bootstrap.min.js"></script>
+
+			<script src="/js/modernizr.min.js"></script>
+			<script src="/js/jquery.min.js"></script>
+			<script src="/js/moment.min.js"></script>
+
+			<script src="/js/popper.min.js"></script>
+			<script src="/js/bootstrap.min.js"></script>
+
+			<script src="/js/detect.js"></script>
+			<script src="/js/fastclick.js"></script>
+			<script src="/js/jquery.blockUI.js"></script>
+			<script src="/js/jquery.nicescroll.js"></script>
+
+			<!-- App js -->
+			<script src="/js/pikeadmin.js"></script>
+
+			<!-- BEGIN Java Script for this page -->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+			<script>
+				var data = <%- JSON.stringify(data) %>
+					console.log(data)
+
+				var time = <%= time %>
+		// data = data.replace('&#34;', ' ');
+		// data = JSON.parse(data)
+		var data_Timestamp_Air = [], data_Timestamp_Light = [], data_Timestamp_Outlet = []
+				data_Air = [], data_Light = [], data_Outlet = []
+
+				for (var i = data.length - 1; i >= 0; i--) {
+					data_Timestamp_Air.push(data[i].Timestamp.slice(16, 24))
+					data_Timestamp_Light.push(data[i].Timestamp.slice(16, 24))
+					data_Timestamp_Outlet.push(data[i].Timestamp.slice(16, 24))
+					data_Air.push(data[i].Air)
+					data_Outlet.push(data[i].Outlet)
+					data_Light.push(data[i].Light)
+				}
+
+				// comboBarLineChart
+				var ctx1 = document.getElementById("LineChart1").getContext('2d');
+				var comboBarLineChart1 = new Chart(ctx1, {
+					type: 'bar',
+					data: {
+						labels: data_Timestamp_Air, // real time
+						datasets: [{
+							type: 'line',
+							label: 'Air Conditioner',
+							backgroundColor: '#3DB9DC',
+							borderColor: '#3DB9DC',
+							borderWidth: 3,
+							fill: false,
+							data: data_Air, // real time
+
+						}]
+					},
+					options: {
+						responsive: true,
+						aspectRatio: 5,
+						maintainAspectRatio: true,
+						scales: {
+							yAxes: [{
+								ticks: {
+									beginAtZero: false
+								}
+							}]
+						}
+					}
+				});
+
+				var ctx2 = document.getElementById("LineChart2").getContext('2d');
+				var comboBarLineChart2 = new Chart(ctx2, {
+					type: 'bar',
+					data: {
+						labels: data_Timestamp_Light, // real time
+						datasets: [{
+							type: 'line',
+							label: 'Light',
+							backgroundColor: '#F1B53D',
+							borderColor: '#F1B53D',
+							borderWidth: 3,
+							fill: false,
+							data: data_Light, // real time
+						}]
+					},
+					options: {
+						responsive: true,
+						aspectRatio: 5,
+						maintainAspectRatio: true,
+						scales: {
+							yAxes: [{
+								ticks: {
+									beginAtZero: false
+								}
+							}]
+						}
+					}
+				});
+
+
+				var ctx3 = document.getElementById("LineChart3").getContext('2d');
+				var comboBarLineChart3 = new Chart(ctx3, {
+					type: 'bar',
+					data: {
+						labels: data_Timestamp_Outlet, // real time
+						datasets: [{
+							type: 'line',
+							label: 'Outlet',
+							backgroundColor: '#FF5D48',
+							borderColor: '#FF5D48',
+							borderWidth: 3,
+							fill: false,
+							data: data_Outlet, // real time
+						}]
+					},
+					options: {
+						responsive: true,
+						aspectRatio: 5,
+						maintainAspectRatio: true,
+						scales: {
+							yAxes: [{
+								ticks: {
+									beginAtZero: false
+								}
+							}]
+						}
+					}
+				});
+
+				// real-time function
+				var dataRealtime
+				const api_charts = `http://localhost:8080/api/chartsUpdate/${time}`
+
+				setInterval(() => {
+					var xhttp = new XMLHttpRequest();
+					xhttp.onreadystatechange = function () {
+						if (this.readyState == 4 && this.status == 200) {
+							dataRealtime = JSON.parse(this.responseText)
+						}
+					};
+					xhttp.open("GET", api_charts, true);
+					xhttp.send();
+
+					comboBarLineChart1.data.labels.shift();
+					comboBarLineChart1.data.labels.push(dataRealtime[0].Timestamp.slice(16, 24));
+					comboBarLineChart1.data.datasets.forEach((dataset) => {
+						dataset.data.shift();
+						dataset.data.push(dataRealtime[0].Air); // query from database
+					});
+
+					comboBarLineChart2.data.labels.shift();
+					comboBarLineChart2.data.labels.push(dataRealtime[0].Timestamp.slice(16, 24));
+					comboBarLineChart2.data.datasets.forEach((dataset) => {
+						dataset.data.shift();
+						dataset.data.push(dataRealtime[0].Light); // query from database
+					});
+
+					comboBarLineChart3.data.labels.shift();
+					comboBarLineChart3.data.labels.push(dataRealtime[0].Timestamp.slice(16, 24));
+					comboBarLineChart3.data.datasets.forEach((dataset) => {
+						dataset.data.shift();
+						dataset.data.push(data[0].Outlet); // query from database
+					});
+
+					comboBarLineChart1.update();
+					comboBarLineChart2.update();
+					comboBarLineChart3.update();
+				}, time)
+
+			</script>
+			<!-- END Java Script for this page -->
+
+</body>
+
+</html>

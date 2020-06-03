@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hotel Energy Saving</title>
+    <meta name="description" content="Free Bootstrap 4 Admin Theme | Pike Admin">
+    <meta name="author" content="Pike Web Development - https://www.pikephp.com">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/images/favicon.ico">
+
+    <!-- Bootstrap CSS -->
+    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Font Awesome CSS -->
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom CSS -->
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+
+    <!-- END CSS for this page -->
+
+    <script src="/js/modernizr.min.js"></script>
+    <script src="/js/jquery/jquery.min.js"></script>
+    <script src="/js/moment.min.js"></script>
+    <!-- Local -->
+    <!-- <script src="/js/gauge/gauge.js"></script> -->
+</head>
+
+<body class="adminbody">
+
+    <div id="main">
+
+        <!-- top bar navigation -->
+        <div class="headerbar">
+
+            <!-- LOGO -->
+            <div class="headerbar-left">
+                <a href="index.html" class="logo"><img alt="Logo" src="/images/logo.jpg" /> <span>Hotel</span></a>
+            </div>
+
+            <!-- Navbar -->
+            <nav class="navbar-custom">
+
+                <ul class="list-inline float-right mb-0">
+
+                    <li class="list-inline-item dropdown notif">
+                        <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="false" aria-expanded="false">
+                            <span><%= name  %></span>
+                            <img src="/images/avatars/admin2.png" alt="Profile image" class="avatar-rounded">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                            <!-- item-->
+                            <div class="dropdown-item noti-title">
+                                <h5 class="text-overflow"><small>Hi, <%= name %>!</small> </h5>
+                            </div>
+
+                            <!-- item-->
+                            <a href="/userTechnician" class="dropdown-item notify-item">
+                                <i class="fa fa-user"></i> <span>Profile</span>
+                            </a>
+
+                            <!-- item-->
+                            <form id="logout" action="/logout?_method=DELETE" method="POST">
+                                <a href="javascript:;" onclick="document.getElementById('logout').submit();"
+                                    class="dropdown-item notify-item">
+                                    <i class="fa fa-power-off"></i> <span>Logout</span>
+                                </a>
+                            </form>
+
+
+                        </div>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+        <!-- End Navigation -->
+
+
+        <!-- Left Sidebar -->
+        <div class="left main-sidebar">
+
+            <div class="sidebar-inner leftscroll">
+
+                <div id="sidebar-menu">
+
+                    <ul>
+                        <li class="submenu">
+                            <a href="/userTechnician"><i class="fa fa-fw fa-user"></i><span> User Profile </span> </a>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="/dashboardTechnician"><i class="fa fa-fw fa-bars"></i><span> Dashboard
+                                </span> </a>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="/chartsTechnician/1"><i class="fa fa-fw fa-area-chart"></i><span> Charts </span>
+                            </a>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="/calendar"><i class="fa fa-fw fa-calendar"></i><span> Calendar </span>
+                            </a>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="/nationality"><i class="fa fa-fw fa-globe"></i><span> Nationality </span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="clearfix"></div>
+
+                </div>
+
+                <div class="clearfix"></div>
+
+            </div>
+
+        </div>
+        <!-- End Sidebar -->
+
+        <div class="content-page">
+
+            <!-- Start content -->
+            <div class="content">
+
+                <div class="container-fluid">
+                    <!-- Super KPI  -->
+                    <div class="row">
+
+                        <div class="col-xs-12 col-md-6 col-lg-6 col-xl-4">
+                            <div class="card-box noradius noborder bg-info">
+                                <i class="fa fa-file-text-o float-right text-white"></i>
+                                <h6 class="text-white text-uppercase m-b-20">Air Conditioner</h6>
+                                <h1 id="row_1_air" class="m-b-20 text-white counter"><%= data[0].Air %></h1>
+                                <span class="text-white">Watt</span>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-md-6 col-lg-6 col-xl-4">
+                            <div class="card-box noradius noborder bg-warning">
+                                <i class="fa fa-bar-chart float-right text-white"></i>
+                                <h6 class="text-white text-uppercase m-b-20">Lights</h6>
+                                <h1 id="row_1_light" class="m-b-20 text-white counter"><%= data[0].Light %></h1>
+                                <span class="text-white">Watt</span>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-md-6 col-lg-6 col-xl-4">
+                            <div class="card-box noradius noborder bg-danger">
+                                <i class="fa fa-user-o float-right text-white"></i>
+                                <h6 class="text-white text-uppercase m-b-20">Outlet</h6>
+                                <h1 id="row_1_outlet" class="m-b-20 text-white counter"><%= data[0].Outlet %></h1>
+                                <span class="text-white">Watt</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+                    <!-- 2nd Important -->
+                    <div class="row">
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <h3><i class="fa fa-line-chart"></i> Real-time power</h3>
+                                    Real-time power consumptions
+                                </div>
+                                <div>
+                                    <div style="width:70%" id="lineargauge1">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div style="width:70%" id="lineargauge2">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div style="width:70%" id="lineargauge3">
+                                    </div>
+                                </div>
+
+                            </div><!-- end card-->
+                        </div>
+
+                    </div>
+                    <!-- end row -->
+
+                    <!-- Row 4 -->
+                    <div class="row">
+
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <i class="fa fa-gear"></i> Total Usage
+                                </div>
+
+                                <div class="card-body">
+                                    <canvas id="pieChart"></canvas>
+                                </div>
+                            </div><!-- end card-->
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <i class="fa fa-dollar"></i> Total Cost
+                                </div>
+
+                                <div class="card-body">
+                                    <canvas id="barChart"></canvas>
+                                </div>
+                            </div><!-- end card-->
+                        </div>
+
+                    </div>
+                    <!-- end row -->
+
+                </div>
+                <!-- END container-fluid -->
+
+            </div>
+            <!-- END content -->
+
+        </div>
+        <!-- END content-page -->
+
+
+        <footer class="footer">
+            <span class="text-right">
+                Copyright <a target="_blank" href="#">Your Website</a>
+            </span>
+            <span class="float-right">
+                Powered by <a target="_blank" href="https://www.pikeadmin.com"><b>Pike Admin</b></a>
+            </span>
+        </footer>
+
+    </div>
+    <!-- END main -->
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap/bootstrap.min.js"></script>
+
+    <!-- App js -->
+    <script src="/js/pikeadmin.js"></script>
+
+    <!-- BEGIN Java Script for this page -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+    <!-- Counter-Up-->
+    <script src="/plugins/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="/plugins/counterup/jquery.counterup.min.js"></script>
+
+    <!-- ----------------------------------------- Gauge ----------------------------------------- -->
+    <!-- Ignite UI Required Combined CSS Files -->
+    <link href="http://cdn-na.infragistics.com/igniteui/2019.1/latest/css/themes/infragistics/infragistics.theme.css"
+        rel="stylesheet" />
+    <link href="http://cdn-na.infragistics.com/igniteui/2019.1/latest/css/structure/infragistics.css"
+        rel="stylesheet" />
+
+    <!-- Used to style the API Viewer and Explorer UI -->
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+
+    <!-- Ignite UI Required Combined JavaScript Files -->
+    <script src="http://cdn-na.infragistics.com/igniteui/2019.1/latest/js/infragistics.core.js"></script>
+    <script src="http://cdn-na.infragistics.com/igniteui/2019.1/latest/js/infragistics.dv.js"></script>
+
+    <!-- Gauge -->
+    <script>
+        var data = <%- JSON.stringify(data) %>
+            console.log(data)
+        // data = data.replace('&#34;', ' ');
+        // data = JSON.parse(data)
+        var data_Timestamp = [], data_Air = [], data_Light = [], data_Outlet = [],
+            data_HotelCost = [], data_RemindCost = [],
+            data_UsageAir = [], data_UsageLight = [], data_UsageOutlet = []
+
+        data_Timestamp.push(data[0].Timestamp.slice(16, 24))
+        data_Air.push(data[0].Air)
+        data_Light.push(data[0].Light)
+        data_Outlet.push(data[0].Outlet)
+        data_HotelCost.push(data[0].HotelCost)
+        data_RemindCost.push(data[0].RemindCost)
+        data_UsageAir.push(data[0].UsageAir)
+        data_UsageLight.push(data[0].UsageLight)
+        data_UsageOutlet.push(data[0].UsageOutlet)
+
+
+        // gauge
+        var $linearGauge1 = $("#lineargauge1");
+
+        $linearGauge1.igLinearGauge({
+            width: '100%',
+            height: '80px',
+            ranges: [
+                {
+                    brush: '#3DB9DC',
+                    name: 'bad',
+                    startValue: 0,
+                    endValue: 600
+                },
+                {
+                    brush: '#8FC9D9',
+                    name: 'acceptable',
+                    startValue: 600,
+                    endValue: 2000
+                }
+                // {
+                //     brush: '#EFEFEF',
+                //     name: 'good',
+                //     startValue: 800,
+                //     endValue: 2000
+                // }
+            ],
+            value: data_Air[0], // convert back to Watt
+            minimumValue: 0,
+            maximumValue: 2000,
+            needleBrush: '#3DB9DC',
+            needleOutline: '#000000',
+            needleInnerExtent: 0.1,
+            needleOuterBaseWidth: 0.15,
+            needleStrokeThickness: 3,
+            formatLabel: function (evt, ui) {
+                ui.label += " Watt";
+            }
+        });
+
+        var $linearGauge2 = $("#lineargauge2");
+
+        $linearGauge2.igLinearGauge({
+            width: '100%',
+            height: '80px',
+            ranges: [
+                {
+                    brush: '#F1B53D',
+                    name: 'bad',
+                    startValue: 0,
+                    endValue: 30
+                },
+                {
+                    brush: '#F5CA76',
+                    name: 'acceptable',
+                    startValue: 30,
+                    endValue: 100
+                }
+            ],
+            value: data_Light[0],
+            needleBrush: '#F1B53D',
+            needleOutline: '#000000',
+            needleInnerExtent: 0.1,
+            needleOuterBaseWidth: 0.15,
+            needleStrokeThickness: 3,
+            formatLabel: function (evt, ui) {
+                ui.label += " Watt";
+            }
+        });
+
+        var $linearGauge3 = $("#lineargauge3");
+
+        $linearGauge3.igLinearGauge({
+            width: '100%',
+            height: '80px',
+            ranges: [
+                {
+                    brush: '#FF5D48',
+                    name: 'bad',
+                    startValue: 0,
+                    endValue: 90
+                },
+                {
+                    brush: '#FC7D6D',
+                    name: 'acceptable',
+                    startValue: 90,
+                    endValue: 300
+                }
+            ],
+            value: data_Outlet[0],
+            minimumValue: 0,
+            maximumValue: 300,
+            needleBrush: '#FF5D48',
+            needleOutline: '#000000',
+            needleInnerExtent: 0.1,
+            needleOuterBaseWidth: 0.15,
+            needleStrokeThickness: 3,
+            formatLabel: function (evt, ui) {
+                ui.label += " Watt";
+            }
+        });
+
+        // pieChart
+        var ctx4 = document.getElementById("pieChart").getContext('2d');
+        var pieChart = new Chart(ctx4, {
+            type: 'pie',
+            data: {
+                datasets: [{
+                    data: [data_UsageAir[0], data_UsageLight[0], data_UsageOutlet[0]],
+                    backgroundColor: [
+                        'rgba(61,185,220, 1)',
+                        'rgba(241,181,61, 1)',
+                        'rgba(255, 93, 72, 1)'
+                    ],
+                    label: 'Dataset 1'
+                }],
+                labels: [
+                    "Air Condition",
+                    "Lights",
+                    "Oulet"
+                ]
+            },
+            options: {
+                responsive: true,
+                aspectRatio: 2,
+                maintainAspectRatio: true
+            }
+
+        });
+
+        // barChart
+        var ctx5 = document.getElementById("barChart").getContext('2d');
+        console.log(data_HotelCost[0])
+        console.log(data_RemindCost[0])
+        var barChart = new Chart(ctx5, {
+            type: 'bar',
+            data: {
+                datasets: [{
+                    label: 'Hotel Cost',
+                    data: [data_HotelCost[0]],
+                    backgroundColor: [
+                        'rgba(31,142,173, 1)'
+                    ],
+                    borderWidth: 1
+                },
+                {
+                    label: 'Remind Cost',
+                    data: [data_RemindCost[0]],
+                    backgroundColor: [
+                        'rgba(35,196,142, 1)',
+                    ],
+                    borderWidth: 1
+                },
+                ]
+            },
+            options: {
+                responsive: true,
+                aspectRatio: 2,
+                maintainAspectRatio: true,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        // real-time function
+        var data
+        const api_dashboard = "http://localhost:8080/api/dashboardUpdate"
+
+        setInterval(() => {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    data = JSON.parse(this.responseText)
+                }
+            };
+            xhttp.open("GET", api_dashboard, true);
+            xhttp.send();
+
+            console.log(data[0].Air)
+
+            // Row 1: Super KPI
+            document.getElementById("row_1_air").innerHTML = data[0].Air
+            document.getElementById("row_1_light").innerHTML = data[0].Light
+            document.getElementById("row_1_outlet").innerHTML = data[0].Outlet
+
+            // Row 2: Gauge
+            $linearGauge1.igLinearGauge("option", "value", data[0].Air);
+            $linearGauge2.igLinearGauge("option", "value", data[0].Light);
+            $linearGauge3.igLinearGauge("option", "value", data[0].Outlet);
+
+            // Row 3: Total cost & Total usage
+            pieChart.data.datasets.forEach((dataset) => {
+                dataset.data[0] = data[0].UsageAir
+                dataset.data[1] = data[0].UsageLight
+                dataset.data[2] = data[0].UsageOutlet
+            });
+
+            //// barChart works but need to reset
+            barChart.data.datasets[0].data.shift()
+            barChart.data.datasets[1].data.shift()
+            barChart.data.datasets[0].data.push(data[0].HotelCost)
+            barChart.data.datasets[1].data.push(data[0].RemindCost)
+
+            pieChart.update()
+            barChart.update();
+        }, 5000)
+    </script>
+    <!-- END Java Script for this page -->
+</body>
+
+</html>
